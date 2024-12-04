@@ -4,17 +4,10 @@ const btnSortear = document.querySelector('.btn-sortear');
 const fichaDescricao = document.getElementById('ficha-descricao');
 
 function carregarInfoSerie() {
-  getDados(`/series/frases`)
+  getDados(`/phrases/random-mapper`)
       .then(data => {
         fichaDescricao.innerHTML = `
-              <img src="${data.poster}" alt="${data.titulo}" />
-              <div>
-                  <h2>${data.titulo}</h2>
-                  <div class="descricao-texto">
-                      <p><i>"${data.frase}"</i></p>
-                      <p><b>Citado por:</b> ${data.personagem}</p>
-                  </div>
-              </div>
+            <p><i>"${data.phrase}"</i></p>
           `;
       })
       .catch(error => {
